@@ -1,20 +1,10 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { PostsContext } from "../contexts/PostsContext";
 
 export default function PostList() {
 
-    const endpoint = ' https://jsonplaceholder.typicode.com/posts'
-
-    const [postList, setPostList] = useState([]);
-
-    useEffect(() => {
-        axios.get(endpoint)
-            .then(res => setPostList(res.data))
-            .catch(err => {
-                alert('Indirizzo errato')
-            })
-    }, [])
+    const { postList } = useContext(PostsContext);
 
     return (
         <ul>
