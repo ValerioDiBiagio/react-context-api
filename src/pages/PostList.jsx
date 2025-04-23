@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { PostsContext } from "../contexts/PostsContext";
+import PostCard from "../components/PostCard";
 
 export default function PostList() {
 
@@ -8,12 +9,8 @@ export default function PostList() {
 
     return (
         <ul>
-            {postList.map(post =>
-                <li key={post.id}>
-                    <h3>{post.title}</h3>
-                    <Link to={`/lista-post/${post.id}`}>'Clicca qui per il post completo'</Link>
-                </li>
-            )}
+            {postList.map(post => <PostCard key={post.id} post={post} />)}
+
         </ul>
     )
 }
