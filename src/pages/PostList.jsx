@@ -1,13 +1,12 @@
-import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { PostsContext } from "../contexts/PostsContext";
 import PostCard from "../components/PostCard";
+import { usePosts } from "../contexts/PostsContext";
 
 export default function PostList() {
 
-    const { postList } = useContext(PostsContext);
+    const { postList } = usePosts();
 
     return (
+
         <ul>
             {postList.map(post => <PostCard key={post.id} post={post} />)}
 
