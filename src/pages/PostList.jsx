@@ -17,16 +17,13 @@ export default function PostList() {
     }, [])
 
     return (
-        <section>
-            <h2>Posts</h2>
-            <ul>
-                {postList.map(post =>
-                    <li key={post.id}>
-                        <h3>{post.title}</h3>
-                        <Link to={`/lista-post/${post.id}`}>'Clicca qui per il post completo'</Link>
-                    </li>
-                )}
-            </ul>
-        </section>
+        <ul>
+            {postList.map(post =>
+                <li key={post.id}>
+                    <h3>{post.title}</h3>
+                    <Link to={`/lista-post/${post.id}`}>'Clicca qui per il post completo'</Link>
+                </li>
+            )}
+        </ul>
     )
 }
